@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "img": "../src/assets/image/cloth.jpg"
+    },
+    {
+        "id": 2,
+        "img": "../src/assets/image/shoes.jpg"
+    },
+    {
+        "id": 3,
+        "img": "../src/assets/image/products.jpg"
+    }
+]
