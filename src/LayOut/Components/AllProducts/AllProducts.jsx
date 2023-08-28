@@ -16,7 +16,6 @@ const AllProducts = () => {
     }, [])
 
     const handleBuyNow = (product) => {
-        console.log(product)
         Swal.fire({
             position: 'top-end',
             icon: 'success',

@@ -1,14 +1,14 @@
 [
     {
         "id": 1,
-        "img": "../src/assets/image/cloth.jpg"
+        "img": "https://i.ibb.co/xMW3mCQ/cloth.jpg"
     },
     {
         "id": 2,
-        "img": "../src/assets/image/shoes.jpg"
+        "img": "https://i.ibb.co/xFPvdHr/shoes.jpg"
     },
     {
         "id": 3,
-        "img": "../src/assets/image/products.jpg"
+        "img": "https://i.ibb.co/rHzYGQf/products.jpg"
     }
 ]
