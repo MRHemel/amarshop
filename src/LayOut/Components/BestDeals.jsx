@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Slide } from "react-awesome-reveal";
 
@@ -8,17 +7,18 @@ import 'swiper/css/pagination';
 
 import { Pagination } from 'swiper/modules';
 import Swal from "sweetalert2";
-import { addToDb } from "../Utilities/fakedb";
+import { addToDb } from "../../Utilities/fakedb";
 
 
-const PopularProducts = () => {
+
+const BestDeals = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
         fetch('products.json')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
-    const popular = products.filter(product => product.ratings === 5)
+    const popular = products.filter(product => (product.price < 50) && (product.price > 20))
     const handleBuyNow = (product) => {
         Swal.fire({
             position: 'top-end',
@@ -35,7 +35,7 @@ const PopularProducts = () => {
             <Slide direction="down">
                 <div className="flex justify-center">
                     <h1 className="text-3xl font-bold text-center border-double border-y-8 border-[#9be9a0] inline-block">
-                        Our Popular Products
+                        Our Best Deals
                     </h1>
                 </div>
             </Slide>
@@ -66,22 +66,17 @@ const PopularProducts = () => {
                     {
                         popular.map(item => (<SwiperSlide
                             key={item.id}
-                        ><div className="card w-96 bg-base-100 shadow-xl">
+                        ><div className="card w-96 bg-base-100 shadow-xl avatar indicator">
+                                <span className="indicator-item badge bg-[#66CC8A] badge-[#66CC8A] mt-4">Offer</span>
                                 <figure className="px-10 pt-10">
                                     <img src={item.img} className="rounded-xl" />
                                 </figure>
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">{item.name}</h2>
                                     <p>Brand: {item.seller}</p>
-                                    <p>Price: ${item.price}</p>
-                                    <div className="rating rating-md">
-                                        <input type="radio" name="rating-10" className="rating-hidden" />
-                                        <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 " />
-                                        <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 " />
-                                        <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 " />
-                                        <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 " />
-                                        <input type="radio" name="rating-10" className="bg-green-500 mask mask-star-2 " checked />
-                                    </div>
+                                    <p className="line-through">Price: ${item.price}</p>
+                                    <p className="">New Price: ${item.price - 10}</p>
+
                                     <div onClick={() => handleBuyNow(item)} className="card-actions">
                                         <button className="btn bg-[#96ECB4]">Add to Cart</button>
                                     </div>
@@ -98,4 +93,4 @@ const PopularProducts = () => {
     );
 };
 
-export default PopularProducts;
+export default BestDeals;

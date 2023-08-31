@@ -37,7 +37,7 @@ const AllProducts = () => {
                         <h2 className="card-title">{product.name}</h2>
                         <p>Price:${product.price}</p>
                         <div onClick={() => handleBuyNow(product)} className="card-actions">
-                            <button className="btn bg-[#96ECB4]">Buy Now</button>
+                            <button className="btn bg-[#96ECB4]">Add to Cart</button>
                         </div>
                     </div>
                 </div>))
